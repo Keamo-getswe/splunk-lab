@@ -11,7 +11,7 @@
 ### Windows Domain Controller (DC)
 - Install Windows Server
 - Promote to Domain Controller
-- Create a test domain (must contain top level)
+- Create a test domain (must be 2 level domain e.g. corp.local)
 - Create test user accounts for brute force simulation
 - Install Sysmon for enhanced event logging
 - Install and configure Splunk Universal Forwarder to send logs to the Splunk server
