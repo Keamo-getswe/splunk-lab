@@ -1,4 +1,4 @@
-# Splunk Lab
+# Splunk + Active Directory Lab
 
 ## Overview
 
@@ -8,49 +8,37 @@
 
 ### System Specification
 
-### Windows Victim
+### Windows Domain Controller (DC)
+- Install Windows Server
+- Promote to Domain Controller
+- Create a test domain (must contain top level)
+- Create test user accounts for brute force simulation
+- Install Sysmon for enhanced event logging
+- Install and configure Splunk Universal Forwarder to send logs to the Splunk server
 
-- Install DVWA:
-  - Download and install XAMPP (Apache + MySQL + PHP).
-  - Place the DVWA files in the appropriate folder.
-  - Start Apache & MySQL.
-  - Open in browser and configure the database.
-  - Set security level to "low" in DVWA settings.
+## Windows Client
+- Join to the domain (corp.local)
 - Install Sysmon
-- Install Winlogbeat
 - Install Splunk Universal Forwarder
+- Configure Forwarder to send logs to Splunk
 
 ## Splunk Server
 - Splunk:
-  - Download & install Splunk Free from Splunk Download.
+  - Download & install Splunk.
   - Enable Receiving
   - Verify Forwarder Connection
-  - Create Input / Index for Windows victim
-
-## Suricata Server
-- Install Suricata
-- Configure Suricata
-- Edit the default config
-- Ensure network interface is correct
-- Ensure logging to EVE JSON format is enabled
-- Start Suricata
-- Verify Suricata detects attacks
-- Install Splunk Universal Forwarder on Ubuntu IDS
-- Configure Forwarder to Send eve.json to Splunk Server
-- On the Splunk Server, open TCP port to receive data
-- Verify Forwarder Connection
-- Create Input / Index for Suricata Server
+  - Create Inputs / Indexes for Windows DC and client victims
 
 ## Kali Attacker
 
 - Configure Kali-Attacker:
-  - Use tools to simulate attacks on DVWA
+  - Use tools to simulate attacks and generate telemetry
   - Verify attacks being logged via:
     - Sysmon
-    - Apache logs
 
 ## Methodology
-### Attack DVWA from Kali
+### Attack AD from Kali
+### Attack Windows client from Kali
 ### Analyzing Attacks in Splunk
 ## Evaluation and Improvements
 ## Conclusion
